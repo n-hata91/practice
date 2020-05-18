@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery2</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: #fcc;
+      padding: 10px;
+      transition: all 2s;
+
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button id="fadeOut">fadeOut</button>
+    <button id="fadeIn">fadeIn</button>
+    <button id="slide">slide</button>
+  </div>
+  <div class="box">box</div>
+
+  <script src="jquery-3.5.1.min.js"></script>
+  <script>
+    // $('#fadeOut').on('click', function(){
+    //   $('.box').fadeOut();
+    // })
+    // $('#fadeIn').on('click', function(){
+    //   $('.box').fadeIn();
+    // })
+    // $('#slide').on('click', function(){
+    //   $('.box').slideToggle();   
+    // })
+      // $('#slide').on('click', function(){
+      //   $('.box').css('opacity', '0');
+      // })
+    document.getElementById('slide').addEventListener('click', function(){
+      document.querySelector('.box').style.width = 0;
+    })
+
+  </script>
+</body>
+</html>

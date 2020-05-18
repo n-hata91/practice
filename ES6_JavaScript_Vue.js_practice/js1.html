@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS1 practice</title>
+</head>
+<body>
+  <div class="frame">
+    <h1 class="frame_title">JavaScript</h1>
+    <div class="frame_inner">
+      <div id="timer">
+
+        <div class="without">
+          <button id="buy">決済する</button>
+        </div>
+
+        <div class="with">
+          <button @click="checkClick" disabled="disabled">決済する2</button>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script>
+          let day = prompt('何日の秒数を計算しますか？');
+          document.write(60*60*24*day);
+
+          const btn = document.getElementById('buy');
+          btn.addEventListener('click', () => {
+            btn.disabled = true;
+          });
+
+          let app = new Vue({
+            el: "#app",
+            data: {
+              disabled: false
+            },
+            methods: {
+              checkClick: function() {
+                this.disabled = true
+              }
+            }
+          })
+        </script>
+
+      </div>
+    </div>
+
+  
+</body>
+</html>

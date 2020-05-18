@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery4</title>
+  <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="container">
+    <h1>曜日</h1>
+
+    <ul>
+      <li v-for="w in days" v-html="w" ></li>
+    </ul>
+  </div>
+
+
+  <!-- <div id="container">
+    <h1>写真館</h1>
+  </div> -->
+
+  <script src="jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: '#container',
+      data: {
+        weeks: ['sun','mon','tue','wed','thi','fri'],
+        days: ['1','2','3','4','5']
+      }
+    })
+
+
+    // let weeks = ['sun','mon','tue','wed','thi','fri'];
+    // $('#container').append('<ul>');
+    // for (let i=0; i<weeks.length; i++) {
+    //   $('#container ul').append('<li>' + weeks[i] + '</li>')
+    // }
+
+    // let img = $('<img>');
+    // img.attr('src', 'https://picsum.photos/200/300')
+    // img.attr('alt', 'photos')
+    // $('#container').append(img);
+    // $('#container').prepend(img);
+  </script>
+</body>
+
+</html>

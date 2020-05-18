@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery5</title>
+  <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Vanilla Ajax</h1>
+  <div id="news"></div>
+  
+  <script src="jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let ajax = new XMLHttpRequest();
+    ajax.open('GET', 'feed.json', true)
+    ajax.onload = function(e) {
+      if (ajax.readyState === 4) {//通信状態が4(終わった)であるか
+        if (ajax.status === 200) {//ページが200(正常に起動)したか
+          let json = JSON.parse(ajax.responseText);//変数ajaxで開いた文字データをjson形式に変換する。これによりjsonの中のデータをプロパティとして利用できる
+
+          let html = '<ul>';
+          for (let i=0; i<json.items.length; i++) {
+            html += '<li>' + json.items[i].title + '</li>';//jsonのitemsの内容を表示するHTMLをfor文で作成
+          }
+          html += '</ul>';
+
+          document.getElementById('news').innerHTML = html;//'name'idに作ったHTMLを挿入
+        }
+      }
+    }
+    ajax.send(null);
+  </script>
+</body>
+</html>

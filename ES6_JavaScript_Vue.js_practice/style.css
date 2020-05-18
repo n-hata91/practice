@@ -1,0 +1,36 @@
+body {
+  background-color: #10517b;
+  color: #fff;
+  padding: 10px;
+}
+
+dl {
+  width: 50%;
+  margin: 0 auto;
+}
+
+dt {
+  border: 1px solid #fff;
+  padding: 5px;
+  margin-bottom: 1em;
+}
+
+dd {
+  margin: 0 0 1em;
+}
+
+dd li {
+  list-style: none;
+  padding: .5em;
+}
+
+dd li:before {
+  content: '>';
+  font-size: .8em;
+  padding-right: 5px;
+}
+
+.active {
+  color: #10517b;
+  background-color: #fff;
+}

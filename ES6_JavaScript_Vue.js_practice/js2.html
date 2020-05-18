@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS2 practice</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+  <div class="frame">
+    <h1 class="frame_title">JavaScript</h1>
+    <div class="frame_inner">
+      <div id="timer">
+
+        <div id="app">
+          {{message}}
+          {{greeting}}
+        </div>
+        <script>
+          let timer = () => {
+            let now = new Date();
+            document.getElementById('timer').innerHTML = `${now.getHours()}:${now.getMinutes()}${now.getSeconds}`
+          }
+          let timerID = getInterval(timer, 500);
+
+          let app = new Vue({
+            el: "#app",
+            data: {
+              message: "yahoooo",
+              greeting: 'hi!'
+            }
+          });
+        </script>
+
+      </div>
+    </div>
+
+  
+</body>
+</html>

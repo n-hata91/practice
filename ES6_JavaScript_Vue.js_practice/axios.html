@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery8</title>
+  <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Vue Ajax</h1>
+  <div id="news">
+    <ul>
+      <li v-for="item in items">{{ item.title }}</li>
+      <!--//itemsを｜itme｜として一つ一つ実行するfor文-->
+    </ul>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    let app = new Vue({
+      //5w1hを記述している・・・le:どこに、data:何を、mounted:いつ
+      el: '#news',
+      data: { items: {} },
+      mounted: function () {//DOM(webページ)が準備された時↓
+        let self = this;//上書き防止
+        axios.get('feed.json').then(function(res){//jsonファイルからresとしていろいろなデータ(jsonだけでなくエラーなども含む)を取得
+          self.items = res.data.items;//resのjsonデータに絞り挿入
+        })
+
+        // $.getJSON('feed.json', function (json) {//jsonファイルから情報を取得して
+        //   self.items = json.items;//Vewのitemsに対して取得したjsonのitemを挿入していく。ただし...thisはjQで上書きされてしまうため使えないためselfとする
+        }
+      })
+  </script>
+</body>
+</html>
+
+<!-- APIを処理し、結果やエラーチェックを扱いたいならaxios -->

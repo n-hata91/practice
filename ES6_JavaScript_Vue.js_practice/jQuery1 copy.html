@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery1</title>
+</head>
+<body>
+  <div id="message">message</div>
+  <div class="box">box</div>
+
+  <script src="jquery-3.5.1.min.js"></script>
+  <script>
+    $('div').css('backgroundColor', '#ffc').css('padding','30px').filter('.box').html('★').end()
+    .css('color', '#fff');
+  </script>
+</body>
+</html>
