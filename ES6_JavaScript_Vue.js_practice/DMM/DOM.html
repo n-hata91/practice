@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript</title>
+  <script src="DOM.js" type="text/javascript" defer></script>
+</head>
+<body>
+
+<!-- formのnameを使って取得 -->
+  <form name="demoForm">
+    <div class="title-div">
+      <label for="title-id">タイトル</label>
+      <input type="text" name="title" id="title-id">
+    </div>
+    <div class="content-div">
+      <label for="description-id">説明</label>
+      <input type="text" name="description" id="description-id">
+    </div>
+    <div class="checkbox-div">
+      <label for="js">JavaScript</label>
+      <input type="checkbox" name="languages" id="js">
+      <label for="ts">TypeScript</label>
+      <input type="checkbox" name="languages" id="ts">
+      <label for="php">PHP</label>
+      <input type="checkbox" name="languages" id="php">
+      <label for="rb">Ruby</label>
+      <input type="checkbox" name="languages" id="rb">
+    </div>
+  </form>
+  <button onclick="getDomElementModule.submitForm()">フォームから取得</button>
+  <div class="margin" style="margin: 25px;"><hr></div>
+
+  <!-- 要素の中の文章を書き換える　【getElementById + innerText】 -->
+    <div id="kore">koreのidを指定しています</div>
+    <button onclick="setDomElementModule.setInnerText('kore')">テキストの書き換え</button>
+    <div class="margin" style="margin: 25px;"><hr></div>
+
+    <!-- 要素を書き換える　【getElementsByClassName + innerHTML】 -->
+    <div class="parent">
+      <div id="child">#parentの子要素です</div>
+    </div>
+    <button onclick="setDomElementModule.innerHtml('parent')">HTMLの書き換え</button>
+    <div class="margin" style="margin: 25px;"><hr></div>
+
+    <!-- 要素の中の属性を変更する　【querySelector + setAttribute】 -->
+    <div>
+      <img src="../../../practice_img/airport.jpg" alt="photo" id="image" width="300" height="200">
+    </div>
+    <button onclick="setDomElementModule.replaceImageSrc('#image')">画像の置き換え</button>
+    <div class="margin" style="margin: 25px;"><hr></div>
+
+    <!-- 要素の中や上下に要素を挿入する　【querySelectorAll + innerAdjacentHTML】 -->
+    <div class="list" id="list">基準はこの位置</div>
+    <button onclick="setDomElementModule.appendChildBelow('#list')">子要素の下</button>
+    <button onclick="setDomElementModule.appendChildAbove('#list')">子要素の上</button>
+    <button onclick="setDomElementModule.appendBelow('.list')">自分の下</button>
+    <button onclick="setDomElementModule.appendAbove('.list')">自分の上</button>
+    <div class="margin" style="margin: 25px;"><hr></div>
+
+    <!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+    <!-- ー画像を投稿してキャプチャやタイトルなどを書き込みコメントをそうにゅできる様にするー -->
+    <!-- ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー -->
+    <!-- 画像が変更されたら、ファイルをチェックし、表示する　【addEventListener + setAttribute】 -->
+    <div class="input__area">
+      <img src="../../../practice_img/airport.jpg" id="image-preview" width="300" height="200">
+      <label class="input-button">
+        <input id="uploadImage" type="file">
+      </label>
+    </div>
+
+    
+</body>
+</html>

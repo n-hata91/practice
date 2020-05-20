@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript</title>
+</head>
+
+<body>
+
+
+
+
+  <script>
+//     var user_hand = prompt('ジャンケンのてをグー、チョキ、パーから選んでください。');
+//     alert('あなたが選んだ手は' + user_hand + 'です。');
+
+
+// function getJShand(){
+//   var js_hand_num = Math.floor( Math.random() * 3 );
+//     if(js_hand_num == 0){
+//       js_hand = 'グー';
+//     } else if(js_hand_num == 1){
+//       js_hand = 'チョキ';
+//     } else {
+//       js_hand = 'パー';
+//     }
+//     return js_hand
+// }
+
+function randomness(){
+var half = Math.floor(Math.random() * 2);
+var damage = Math.floor(Math.random() * 6);
+if(half == 0){
+  half = 1;
+}else{
+  half = -1;
+}
+  return damage * half;
+}
+
+function damage(level){
+  var attack = 10 + Math.floor(Math.random() * 1.1 * level);
+  return attack + randpmness();
+}
+
+var levelEnemy = 30 + Math.floor(Math.random() * 10);
+var levelMe = 30 + Math.floor(Math.random() * 10);
+var HPEnemy = levelEnemy * Math.floor(Math.random() * 25);
+var HPMe = levelMe * Math.floor(Math.random() * 25);
+
+
+
+
+
+    // var orange = 120;
+    // var apple = 120;
+
+    // if (orange < apple){
+    // alert('orange is cheaper than apple');
+    // } else if(orange == apple){
+    // alert('orange and apple are same price');
+    // }else{
+    //   alert('orange is more expensive than apple')
+    // }
+
+    //   var hp = 100;
+    //   var dm = 22;
+    //   var count = 0;
+
+    // while (hp > 0) {
+    //   hp -= dm;
+    //   count ++;
+    // }
+    // alert(count + "回攻撃を受けてダウン");
+
+    // var i;
+    // var num = 0;
+
+    // for( i = 1; i < 11; i++){
+    //   num += i;
+    // }
+    // alert('1から10までを足した数字は' + num + 'です');
+
+    // function addString(strA){
+    //   var addStr = 'Hello  ' + strA
+    //   return addStr;
+    // }
+    // var alertString = addString('wsebcamp');
+    // alert(alertString);
+
+    
+
+  </script>
+
+</body>
+
+</html>
