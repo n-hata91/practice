@@ -1,0 +1,42 @@
+<section class="sct-color-1 slice">
+  <div class="container-fluid masonry-container">
+    <div class="row">
+      <div class="col-md-8 col-sm-offset-2">
+        <div class="masonry-wrapper-cols">
+          <div class="masonry-gutter"></div>
+          <div class="masonry-block">
+            <div class="block block-image v1">show</div>
+              <div class="post-meta-top">
+                <%= attachment_image_tag @post_image, :image %>
+              </div>
+            </div>
+            <div class="post-content">
+              <h2 class="post-title"><%= @post_image.shop_name %></h2>
+              <ul class="meta-info-cells v4 float-wrapper">
+                <li>
+                  <i class="fa fa-user"></i>
+                  By
+                  <a href="#"></a>
+                </li>
+                <li>
+                  <i class="fa fa-calendar"></i>
+                  <%= @post_image.created_at.strftime('%Y/%m/%d') %>
+                </li>
+                <li>
+                  <i class="fa fa-heart"></i>
+                  <a href="#">202 いいね</a>
+                </li>
+                <li>
+                  <i class="fa fa-comment"></i>
+                  <a href="#comments">4</a>
+                </li>
+              </ul>
+              <div class="post-content-inner mt-20">
+              <p><%= @post_image.caption %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
