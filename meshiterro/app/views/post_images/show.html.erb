@@ -7,7 +7,7 @@
           <div class="masonry-block">
             <div class="block block-image v1">show</div>
               <div class="post-meta-top">
-                <%= attachment_image_tag @post_image, :image %>
+                <%= attachment_image_tag @post_image, :image, size: "360x200" %>
               </div>
             </div>
             <div class="post-content">
@@ -28,11 +28,52 @@
                 </li>
                 <li>
                   <i class="fa fa-comment"></i>
-                  <a href="#comments">4</a>
+                  <a href="#comments"><%= @post_image.post_comments.count %></a>
                 </li>
               </ul>
               <div class="post-content-inner mt-20">
               <p><%= @post_image.caption %></p>
+
+              <div class="comment-list bt style-2" id="comments">
+                  <div class="float-wrapper">
+                    <h2><%= @post_image.post_comment.count %>件コメント</h2>
+                  </div>
+              </div>
+                <%= comment.text %>
+              <% end %>
+
+              <ol>
+                <% @post_image.post_comments.each do |post_comment| %>
+                  <li class="comment">
+                    <div class="comment-body bb">
+                      <div class="comment-avatar">
+                        <div class="abatar">
+                          <%= image_tag('sample-author1.jpg', style: "width: 60px; height: 60px;") %>
+                        </div>
+                      </div>
+                      <div class="comment-text">
+                        <div class="comment-author clearfix">
+                          <a href="#" class="link-author"><%= post_comment.user.name %></a>
+                          <span class="comment-meta">
+                            <span class="comment-data"><%= post_comment.created_at.strftime('%Y/%m/%d') %></span>
+                          </span>
+                        </div>
+                        <div class="comment-entry"><%= post_comment.comment %></div>
+                      </div>
+                    </div>
+                  </li>
+                <% end %>
+              </ol>
+
+
+
+              <h2>コメント</h2>
+
+              <%= form_with model: @post_comment, url: post_image_post_comments_path, |f| %>
+              <% f.label :@post_comment %>
+              <%= f.text_field :@post_comment,  %>
+              <%= f.submit "送信する" %>
+
             </div>
           </div>
         </div>
