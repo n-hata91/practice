@@ -5,7 +5,7 @@
         <div class="masonry-wrapper-cols">
           <div class="masonry-gutter"></div>
           <div class="masonry-block">
-            <div class="block block-image v1">show</div>
+            <div class="block block-image v1"><strong>show</strong></div>
               <div class="post-meta-top">
                 <%= attachment_image_tag @post_image, :image, size: "360x200" %>
               </div>
@@ -36,19 +36,18 @@
 
               <div class="comment-list bt style-2" id="comments">
                   <div class="float-wrapper">
-                    <h2><%= @post_image.post_comment.count %>件コメント</h2>
+                    <h2><%= @post_image.post_comments.count %>件コメント</h2>
                   </div>
               </div>
-                <%= comment.text %>
-              <% end %>
-
+              
+              
               <ol>
                 <% @post_image.post_comments.each do |post_comment| %>
                   <li class="comment">
                     <div class="comment-body bb">
                       <div class="comment-avatar">
                         <div class="abatar">
-                          <%= image_tag('sample-author1.jpg', style: "width: 60px; height: 60px;") %>
+                          <%= image_tag('', style: "width: 60px; height: 60px;") %>
                         </div>
                       </div>
                       <div class="comment-text">
@@ -59,6 +58,12 @@
                           </span>
                         </div>
                         <div class="comment-entry"><%= post_comment.comment %></div>
+                        <% if post_comment.user == current_user %>
+                          <div>
+
+                            <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete, class: 'btn btn-danger pull-right' %>
+                          </div>
+                        <% end %>
                       </div>
                     </div>
                   </li>
@@ -69,11 +74,14 @@
 
               <h2>コメント</h2>
 
-              <%= form_with model: @post_comment, url: post_image_post_comments_path, |f| %>
-              <% f.label :@post_comment %>
-              <%= f.text_field :@post_comment,  %>
-              <%= f.submit "送信する" %>
-
+              <%= form_with model: [@post_image, @post_comment] do |f| %>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <%= f.text_area :comment, rows: '5', class: "form-control", placeholder: 'コメントをここに' %>
+                  </div>
+                </div>
+              <%= f.submit "送信する", class: "btn btn-lg btn-primary mt-20 pull-right" %>
+              <% end %>
             </div>
           </div>
         </div>
