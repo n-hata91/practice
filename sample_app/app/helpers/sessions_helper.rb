@@ -9,6 +9,10 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token # 作った記憶トークンを永続化してcookieに渡す
   end
 
+  def current_user?(user)
+    user == current_user
+  end
+
   def current_user
     if (user_id = session[:user_id])  #session[:user_id] #セッションがあれば...
       @current_user ||= User.find_by(id: user_id) #セッションでユーザ情報を探して利用
@@ -35,5 +39,14 @@ module SessionsHelper
     forget(current_user)
     session.delete(:user_id)
     @current_usr = nil
+  end
+
+  def redirect_back_or(default) #記憶したURLまたはデフォルトへリダイレクト
+    redirect_to(session[:forwarding_url] || default) #sessionに記録した場所へリダイレクト、なければデフォ
+    session.delete(:forwarding_url) #記録した場所をsessionから削除
+  end
+
+  def store_location #sessionへ:for.._u..というキーでリクエストを保存
+    session[:forwarding_url] = request.original_url if request.get? #request.original_urlでリクエスト先が取得できる、ただしgetリクエストのみ
   end
 end
