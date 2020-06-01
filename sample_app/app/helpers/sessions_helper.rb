@@ -18,7 +18,7 @@ module SessionsHelper
       @current_user ||= User.find_by(id: user_id) #セッションでユーザ情報を探して利用
     elsif (user_id = cookies.signed[:user_id])  #cookies.signed[:user_id] #セッションはないけどクッキーにはユーザ情報があるなら...
       user = User.find_by(id: user_id) #クッキーから情報を取得
-      if user && user.authenticated?(cookies[:remember_token]) #userがあって、クッキーの情報とDBのtoken情報が一致するなら
+      if user && user.authenticated?(:remember, cookies[:remember_token]) #userがあって、クッキーの情報とDBのtoken情報が一致するなら
         log_in user #セッションに情報を入れて
         @current_user = user #@current_userを作る
       end
