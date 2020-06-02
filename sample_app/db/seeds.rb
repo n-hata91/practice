@@ -24,3 +24,9 @@ User.create!(name: "Example User",
               activated: true,
               activated_at: Time.zone.now)
 end
+
+users = User.order(:created_at).take(6) #takeメソッドで最初の6人だけにポストを追加
+36.times do #36post分を追加
+  content = Faker::Lorem.sentence(1) #引数は文字の長さ？
+  users.each { |user| user.microposts.create!(content: content)}
+end
