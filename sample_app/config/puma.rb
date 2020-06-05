@@ -1,3 +1,14 @@
+bind 'unix://#{Rails.root}/tmp/sockets/puma.sock'
+rails_root = Dir.pwd
+if Rails.env.production?
+  pidfile File.join(rails_root, 'rmp', 'pids', 'puma.pid')
+  state_path File.join(rails_root, 'tmp', 'pids', 'puma.state')
+  stdout_redirect(
+    File.join(rails_root, 'log', 'puma.log')
+    File.join(rails_root, 'log', 'puma-error.log')
+  )
+  daemonize
+end
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers: a minimum and maximum.
 # Any libraries that use thread pools should be configured to match
