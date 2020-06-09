@@ -1,0 +1,57 @@
+.container {
+  width: 400px;
+  margin: 20px auto;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+}
+
+h2 {
+  font-size: 16px;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+h3 {
+  font-size: 14px;
+  padding-top: 25px;
+}
+
+ul > li {
+  margin-bottom: 5px;
+}
+
+.logo{
+  width: 300px;
+  height: 50px;
+  background-color: black;
+}
+
+.header-menu {
+  font-size: 12px;
+  font-weight: normal;
+  float: right;
+}
+
+input[type="text"], textarea {
+  box-sizing: border-box;
+  width: 300px;
+  paddin: 5px;
+}
+
+textarea {
+  height: 160px;
+}
+
+.error {
+  font-size: 12px;
+  font-weight: bold;
+  color: tomato;
+}
+
+.command {
+  font-size: 12px;
+}
