@@ -1,0 +1,61 @@
+$baseFontSize: 14px;//変数
+$imgDir: "../img/";
+$brandColor: #58f0f8;
+
+#main {
+  width: 90%;
+  background: url("#{$imgDir}ed.png")
+  p{
+    color: lighten($brandColor, 30%);//色の指定や変化も可能
+    font-size: $baseFontSize;
+    .sub {
+      font-size: $baseFontSize - 2px;//計算
+    }
+  }
+}
+
+//if文
+$debugMode: true;
+$x: 10;
+
+#main {
+  @if $debugMode == true {
+    color: green;
+  } @else {
+    color: red;
+  }
+  p {
+    padding: $x;
+  }
+}
+
+//ループ文
+@for $i from 10 through 15 {
+  .fs#{$i} { font-size: #{$i}px; }
+}
+
+$i: 10;
+@while $i <= 15 {
+  .fs#{$i} { font-size: #{$i}px; }
+  $i: $i + 1;
+}
+
+//リスト（分類分けして管理）
+$classes: 1,2,3,4,5;
+
+@each $class in $classes {
+  .#{$class}-icon { background: url("#{$class}.jpg"); }
+}
+
+//関数
+$totalWidth: 940px
+$columnCount: 5;
+@function getColumnWidth($width, $count) {
+  $pa
+  @return $columnWidth
+}
+
+.grid {
+  float: left:
+  width: getColumnWidth($totalWidth, $columnCount)
+}
