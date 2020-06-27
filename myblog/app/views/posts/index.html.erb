@@ -10,7 +10,7 @@
   post_path(post),
   method: :delete,
   class: "command",
-  data: {confirm: 'Sure?'} %>
+  data: {confirm: 'Sure?'} %><%# アラートの挿入方法 %>
   <%= post.title %></li>
   <% end %>
 </ul>
