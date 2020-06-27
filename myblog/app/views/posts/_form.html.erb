@@ -1,8 +1,8 @@
- <%= form_for @post do |f| %><%# createアクションのURL %>
+ <%= form_for @post do |f| %><%# createアクションのURL、なんだけどパーシャルでresourcesのオブジェクトを使っていれば省略できる %>
     <p>
       <%= f.text_field :title, placeholder: "enter title" %>
       <% if @post.errors.messages[:title].any? %>
-      <span class="error"><%= @post.errors.messages[:title][0] %></span>
+      <span class="error"><%= @post.errors.messages[:title][0] %></span><%# エラーの最初のメッセージだけを表示 %>
       <% end %>
     </p>
     <p>

@@ -8,7 +8,7 @@
       <li>
         <%= comment.body %>
         <%= link_to '[X]',
-          post_comment_path(@post, comment),
+          post_comment_path(@post, comment),# リンクのパラメータも下のフォーム同様routingを参考にする。今回はpost_idとcomment.idが必要
           method: :delete,
           class: "command",
           data: {confirm: 'Sure?'} %>
@@ -16,7 +16,7 @@
     <% end %>
   </ul>
   <% end %>
-  <%= form_for ([@post, @post.comments.build]) do |f| %><%# createアクションのURL %>
+  <%= form_for ([@post, @post.comments.build]) do |f| %><%# 渡すパラメータはroutingを参照、post_idとcommentの新しいインスタンスを渡す %>
     <p>
       <%= f.text_field :body, placeholder: "enter title" %>
     </p>

@@ -5,6 +5,8 @@ class CommentsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+# 上下どちらもフォームやリンクから二つのパラメータが渡されている
+
   def destroy
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
